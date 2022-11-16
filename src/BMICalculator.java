@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 /**
  * BMI Calculator
  * Calculates the body mass index of input given by user
@@ -38,6 +39,7 @@ public class BMICalculator {
         String userin = new String();
         int inches;
         int pounds;
+        DecimalFormat df = new DecimalFormat("0.00");
         while(true) {
             try{
                 System.out.print("Enter your height in feet and inches (Ex 6'1\") or 0 to quit: ");
@@ -51,7 +53,7 @@ public class BMICalculator {
                 System.out.print("Enter your weight in pounds: ");
                 pounds = Integer.parseInt(in.nextLine());
 
-                System.out.println("Your BMI, expressed as weight(kg)/height(m)^2: " + computeBMI(inches, pounds) + " kg/m^2");
+                System.out.println("Your BMI, expressed as weight(kg)/height(m)^2: " + df.format(computeBMI(inches, pounds)) + " kg/m^2");
             }
             catch(Exception e) {
                 System.out.println("There was an error: " + e.toString());
